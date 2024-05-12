@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome</title>
+        <link href="./src/output.css" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://groupefikri.com/public/assets/img/groupe-fikri-logo.svg" type="image/x-icon">
+    </head>
+
+    <body >
+        <nav class="bg-gray-300 flex justify-between items-center py-1">
+            <div class="container">
+                <div class="pl-4 flex justify-between ">
+                    <div>
+                        <a href="#" class="text-sm text-gray-800 hover:text-blue-600 mr-4 " onclick="toggleParticuliers()">PARTICULIERS</a>
+                        <a href="#" class="text-sm text-gray-800 hover:text-blue-600 mr-4" onclick="toggleProfessionels()">PROFESSIONELS / ENTREPRISES</a>
+
+                    </div>
+                    <div class="flex float-end">
+                        <button class="text-gray-800 text-sm font-semibold hover:text-purple-600">
+                            <img width="30" height="48" src="https://img.icons8.com/color/48/france-circular.png" alt="france-circular"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="bg-gray-300 font-sans w-full m-0">
+            <div class="bg-white shadow">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-1">
+                        <div>
+                            <img width="75" src="https://groupefikri.com/public/assets/img/groupe-fikri-logo.svg" alt="Groupe Fikri Logo">
+                        </div>
+
+                        <div class="hidden sm:flex sm:items-center">
+                            <div id="part">
+
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">AUTO</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">MOTO</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">HABITATION</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">EPARGNE</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PREVOYANCE</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">SANTE</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">LOISIRS</a>
+                            </div>
+                            <div id="pro">
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PROTEGEZ VOTRE ACTIVITE</a>
+                                <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PROTEGEZ VOTRE COLLABORATEURS</a>
+                            </div>
+                        </div>
+
+                        <!-- <div class="hidden sm:flex sm:items-center">
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Sign in</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Sign up</a>
+                        </div> -->
+
+                        <div class="sm:hidden cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12.9499909,17 C12.7183558,18.1411202 11.709479,19 10.5,19 C9.29052104,19 8.28164422,18.1411202 8.05000906,17 L3.5,17 C3.22385763,17 3,16.7761424 3,16.5 C3,16.2238576 3.22385763,16 3.5,16 L8.05000906,16 C8.28164422,14.8588798 9.29052104,14 10.5,14 C11.709479,14 12.7183558,14.8588798 12.9499909,16 L20.5,16 C20.7761424,16 21,16.2238576 21,16.5 C21,16.7761424 20.7761424,17 20.5,17 L12.9499909,17 Z M18.9499909,12 C18.7183558,13.1411202 17.709479,14 16.5,14 C15.290521,14 14.2816442,13.1411202 14.0500091,12 L3.5,12 C3.22385763,12 3,11.7761424 3,11.5 C3,11.2238576 3.22385763,11 3.5,11 L14.0500091,11 C14.2816442,9.85887984 15.290521,9 16.5,9 C17.709479,9 18.7183558,9.85887984 18.9499909,11 L20.5,11 C20.7761424,11 21,11.2238576 21,11.5 C21,11.7761424 20.7761424,12 20.5,12 L18.9499909,12 Z M9.94999094,7 C9.71835578,8.14112016 8.70947896,9 7.5,9 C6.29052104,9 5.28164422,8.14112016 5.05000906,7 L3.5,7 C3.22385763,7 3,6.77614237 3,6.5 C3,6.22385763 3.22385763,6 3.5,6 L5.05000906,6 C5.28164422,4.85887984 6.29052104,4 7.5,4 C8.70947896,4 9.71835578,4.85887984 9.94999094,6 L20.5,6 C20.7761424,6 21,6.22385763 21,6.5 C21,6.77614237 20.7761424,7 20.5,7 L9.94999094,7 Z M7.5,8 C8.32842712,8 9,7.32842712 9,6.5 C9,5.67157288 8.32842712,5 7.5,5 C6.67157288,5 6,5.67157288 6,6.5 C6,7.32842712 6.67157288,8 7.5,8 Z M16.5,13 C17.3284271,13 18,12.3284271 18,11.5 C18,10.6715729 17.3284271,10 16.5,10 C15.6715729,10 15,10.6715729 15,11.5 C15,12.3284271 15.6715729,13 16.5,13 Z M10.5,18 C11.3284271,18 12,17.3284271 12,16.5 C12,15.6715729 11.3284271,15 10.5,15 C9.67157288,15 9,15.6715729 9,16.5 C9,17.3284271 9.67157288,18 10.5,18 Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                
+                    <div class="block sm:hidden bg-white border-t-2 py-2">
+                        <div class="flex flex-col">
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">AUTO</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">MOTO</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">HABITATION</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">EPARGNE</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PREVOYANCE</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">SANTE</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">LOISIRS</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PROTEGEZ VOTRE ACTIVITE</a>
+                            <a href="#" class="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4">PROTEGEZ VOTRE COLLABORATEURS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="relative bg-black ">
+            <video autoplay muted loop class="absolute w-full h-full inset-0 object-cover">
+                <source src="assets/7821646-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="relative flex flex-col justify-center py-10 text-white backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between px-6 md:px-10">
+                    <div class="max-w-lg mt-6 md:mt-0 md:mr-6">
+                        <h1 class="text-5xl font-bold leading-normal">Assurance <span class="font-light"> Pour Tous </span></h1>
+                        <p class="text-xl mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum accusantium reprehenderit rem illo sapiente odio iusto laudantium, fugit excepturi libero iure voluptas eligendi.</p>
+                    </div>
+                    <div class="max-w-md mt-6 bg-white/30 p-9 rounded-2xl mr-11">
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-lg text-black-200 mb-2" for="email">Email Address</label>
+                                <input class=" px-4 py-2 w-full bg-white/50 text-black rounded-md focus:outline-none focus:ring focus:border-blue-500" type="email" id="email" name="email" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-lg text-gray-200 mb-2" for="password">Password</label>
+                                <input class="px-4 py-2 w-full bg-white/50 text-white rounded-md focus:outline-none focus:ring focus:border-blue-500" type="password" id="password" name="password" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-lg text-gray-200 mb-2" for="role">S'inscrire comme:</label>
+                                <select class="px-4 py-2 w-full bg-white/40 text-black rounded-md focus:outline-none focus:ring focus:border-blue-500" id="role" name="role" required>
+                                    <option value="" disabled selected>-</option>
+                                    <option value="role1">Particulier</option>
+                                    <option value="role2">PROFESSIONELS / ENTREPRISES</option>
+                                </select>
+                            </div>
+                            <div>
+                                <!-- <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Register</button> -->
+                                <a href="#_" class="flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-500 whitespace-no-wrap bg-white border-2 border-transparent rounded-full shadow-sm hover:bg-transparent hover:text-white hover:border-white focus:outline-none">
+                                Go
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="relative pt-2 lg:pt-2  bg-gradient-to-b from-gray-500 to-gray-300">
+
+            <h1 class="text-4xl font-bold text-center text-white my-4">
+            Nos services
+            </h1>
+            <div class="bg-cover w-full flex justify-center items-center"
+                style="background-image: url('');">
+                <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
+                    <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
+        
+                            <article
+                                class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+                                <a target="_self" href=""
+                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></a>
+                                <div class="relative mb-4 rounded-2xl">
+                                    <img class="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        src="https://www.leguideauto.ma/contents/posts/pictures/2021/12/large/3yUZuOnAWtccXlvHyXBSJGyiJyFwYTUGMJAvx84u.webp" alt="">
+                                    
+
+                                    <a class="flex justify-center items-center bg-blue-600 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
+                                        href="" target="_self" rel="noopener noreferrer">
+                                        Read more
+                                        <svg class="ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                
+                                <h3 class="font-medium text-xl leading-8">
+                                    <a href=""
+                                        class="block relative group-hover:text-blue-600 transition-colors duration-200 ">
+                                        Service 1
+                                    </a>
+                                </h3>
+                            </article>
+
+                            <article
+                                class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+                                <a target="_self" href=""
+                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></a>
+                                <div class="relative mb-4 rounded-2xl">
+                                    <img class="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        src="https://www.lesaffaires.com/uploads/images/normal/21331abc8c7cc64529c11c101ebd73e9.jpg" alt="">
+                                    
+
+                                    <a class="flex justify-center items-center bg-yellow-400 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
+                                        href="" target="_self" rel="noopener noreferrer">
+                                        Read more
+                                        <svg class="ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                
+                                <h3 class="font-medium text-xl leading-8">
+                                    <a href=""
+                                        class="block relative group-hover:text-yellow-400 transition-colors duration-200 ">
+                                        Service 2
+                                    </a>
+                                </h3>
+                            </article>
+
+
+                            <article
+                                class="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
+                                <a target="_self" href=""
+                                    class="absolute opacity-0 top-0 right-0 left-0 bottom-0"></a>
+                                <div class="relative mb-4 rounded-2xl">
+                                    <img class="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        src="https://doers.ma/wp-content/uploads/2022/11/Ouvrir-un-cabinet-dintermediaire-en-assurance-au-Maroc.jpg" alt="">
+                                    
+
+                                    <a class="flex justify-center items-center bg-green-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
+                                        href="" target="_self" rel="noopener noreferrer">
+                                        Read more
+                                        <svg class="ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                
+                                <h3 class="font-medium text-xl leading-8">
+                                    <a href=""
+                                        class="block relative group-hover:text-green-700 transition-colors duration-200 ">
+                                        Service 3
+                                    </a>
+                                </h3>
+                            </article>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="relative isolate bg-gradient-to-b from-gray-300 to-blue-50 pb-32 pt-4 sm:pt-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-xl text-center">
+                    <p class="text-3xl font-semibold text-vnet-blue tracking-tight text-gray-900 sm:text-4xl">Testimonials</p>
+                </div>
+                <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+                    <figure class="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1">
+                        <blockquote class="p-6 text-lg font-semibold leading-7 tracking-tight text-gray-900 sm:p-12 sm:text-xl sm:leading-8">
+                        <p>“En tant que chef d'entreprise, trouver la bonne couverture d'assurance était essentiel pour moi. Groupe Fikri Assurance m'a fourni une assurance adaptée à mes besoins et m'a guidé à travers chaque étape avec expertise et dévouement.”</p>
+                        </blockquote>
+                        <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap">
+                        <img class="h-10 w-10 flex-none rounded-full bg-gray-50" src="https://sys.hostoplus.com/user-uploads/avatar/627625b3f0070f91125e72d1a39128c4.png" alt="">
+                        <div class="flex-auto">
+                            <div class="font-semibold">Abdellah Baidou</div>
+                            
+                        </div>
+                        
+                        </figcaption>
+                    </figure>
+                    <div class="space-y-8 xl:contents xl:space-y-0">
+                        <div class="space-y-8 xl:row-span-2">
+                            <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                                <blockquote class="text-gray-900">
+                                    <p>“Je suis cliente chez Groupe Fikri Assurance depuis des années et je suis totalement satisfaite. Leur réactivité et leur soutien lors de mes demandes d'indemnisation m'ont donné une tranquillité d'esprit inestimable.”</p>
+                                </blockquote>
+                                <figcaption class="mt-6 flex items-center gap-x-4">
+                                    <img class="h-10 w-10 rounded-full bg-gray-50" src="https://st2.depositphotos.com/1037987/42002/i/450/depositphotos_420021494-stock-photo-portrait-female-owner-gift-store.jpg" alt="">
+                                    <div>
+                                        <div class="font-semibold">Layla Al-Hassan</div>
+                                        
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="space-y-8 xl:row-start-1">
+                            <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                                <blockquote class="text-gray-900">
+                                    <p>“Passer chez Groupe Fikri Assurance a été une excellente décision. Ils ont non seulement réduit mes primes, mais leur service client est exceptionnel. Toujours disponibles et prêts à aider, je recommande vivement cette compagnie.”</p>
+                                </blockquote>
+                                <figcaption class="mt-6 flex items-center gap-x-4">
+                                    <img class="h-10 w-10 rounded-full bg-gray-50" src="https://t3.ftcdn.net/jpg/03/53/59/46/240_F_353594684_Ca3p9RIc3xgQ1Y6ff7Jk6nVe54v9NbpQ.jpg" alt="">
+                                    <div>
+                                        <div class="font-semibold">Salim Abdo</div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="space-y-8 xl:contents xl:space-y-0">
+                        <div class="space-y-8 xl:row-start-1">
+                            <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                                <blockquote class="text-gray-900">
+                                    <p>“Je recommande vivement Groupe Fikri Assurance à tous mes proches en raison de leur excellent service. Leur attention personnalisée et leurs tarifs compétitifs en font un choix de confiance pour mes besoins en assurance.”</p>
+                                </blockquote>
+                                <figcaption class="mt-6 flex items-center gap-x-4">
+                                    <img class="h-10 w-10 rounded-full bg-gray-50" src="https://blog.hubspot.com/hs-fs/hubfs/Testimonial-lead-gen-1.webp?width=595&height=400&name=Testimonial-lead-gen-1.webp" alt="">
+                                    <div>
+                                        <div class="font-semibold">Omar Ait Azza</div>
+                                    
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="space-y-8 xl:row-span-2">
+                            <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                                <blockquote class="text-gray-900">
+                                    <p>“J'ai récemment dû faire une réclamation chez Groupe Fikri Assurance après un accident. Leur professionnalisme et leur empathie m'ont vraiment impressionné. Ils ont rendu le processus facile et sans stress, je suis reconnaissant pour leur soutien.”</p>
+                                </blockquote>
+                                <figcaption class="mt-6 flex items-center gap-x-4">
+                                    <img class="h-10 w-10 rounded-full bg-gray-50" src="https://t4.ftcdn.net/jpg/05/21/98/33/240_F_521983330_cv0fpBul5cXIdr4h4HZrle1DoR5EnWyL.jpg" alt="">
+                                    <div>
+                                        <div class="font-semibold">Fredrick Hans</div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" bg-blue-50">
+            <main class="p-5 bg-light-blue">
+                <div class="flex justify-center items-start my-2">
+                    <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+                        <h2 class="text-4xl pb-2 font-semibold text-vnet-blue text-center mb-2">FAQ</h2>
+                        <span class="text-gray-500">Trouvez ici les réponses aux questions les plus fréquemment posées.</span>
+                            <ul class="flex flex-col">
+                            <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+                                <h2
+                                    @click="handleClick()"
+                                    class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>Comment se fait l’estimation des dommages ?</span>
+                                    <svg
+                                    :class="handleRotate()"
+                                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                                    viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                    x-ref="tab"
+                                    :style="handleToggle()"
+                                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                                    >
+                                    <p class="p-3 text-gray-900">
+                                    L’estimation des dommages se fait à la suite de la constatation faite par l’expert désigné par la compagnie.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
+                                <h2
+                                    @click="handleClick()"
+                                    class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>Quels sont les documents à présenter pour une déclaration de sinistre ?</span>
+                                    <svg
+                                    :class="handleRotate()"
+                                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                                    viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                                    x-ref="tab"
+                                    :style="handleToggle()"
+                                    >
+                                    <p class="p-3 text-gray-900">
+                                    La déclaration du sinistre doit être faite par écrit ou verbalement et contre récépissé́, soit au siège social de l’assureur, soit auprès de l’intermédiaire d’assurance mandaté à cet effet.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="bg-white my-2 shadow-lg" x-data="accordion(3)">
+                                <h2
+                                    @click="handleClick()"
+                                    class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>Quel est le délai pour déclarer un sinistre survenu dans mon local professionnel ?</span>
+                                    <svg
+                                    :class="handleRotate()"
+                                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                                    viewBox="0 0 20 20"
+                                    >
+                                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                                    x-ref="tab"
+                                    :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    Le délai pour chacune des garanties mises en jeu est mentionné sur les Conditions particulières et conditions générales de votre contrat d’assurance.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+                                <h2
+                                    @click="handleClick()"
+                                    class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>Auprès de qui peut-on déclarer un sinistre ?</span>
+                                    <svg
+                                    :class="handleRotate()"
+                                    class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                                    viewBox="0 0 20 20"
+                                    >
+                                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                    class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                                    x-ref="tab"
+                                    :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    L’assuré est tenu de déclarer son sinistre, sauf en cas de force majeure, à la Compagnie à travers son conseiller en assurance dès qu’il en a eu connaissance.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+            <section class="text-gray-600 body-font bg-gradient-to-b from-blue-50 to-yellow-100">
+                <div class="container flex flex-col md:flex-row lg:max-w-5xl w-full px-5 py-12 md:py-24 mx-auto section"
+                    id="contact-form">
+                    <div class="md:w-1/3 w-full">
+                        <h1 class="text-4xl text-gray-800 sm:text-4xl font-bold title-font mb-4">Contactez-nous</h1>
+                        <p class="leading-relaxed text-xl text-gray-900">
+                            Nous sommes là pour vous aider ! Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter.
+                            <br><br>
+                            Vous pouvez également nous envoyer un email à
+                            <a href="mailto:contact@example.com"
+                                class="font-semibold border-b-4 border-green-400">GroupeFikri@contact.com</a>
+                        </p>
+                        <p class="leading-relaxed text-xl text-gray-900 mt-8">
+                            Connectez-vous avec nous sur les réseaux sociaux :
+                        </p>
+                        <span class="inline-flex mt-6 justify-center sm:justify-start">
+                            <a class="text-gray-500 hover:text-gray-900" target="_blank" href="https://twitter.com/">
+                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path
+                                        d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="ml-3 text-gray-500 hover:text-gray-900" href="https://www.instagram.com/"
+                                target="_blank">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                                </svg>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="md:w-2/3 w-full mt-10 md:mt-0 md:pl-28">
+                        <h1 class="text-4xl text-gray-800 sm:text-4xl font-bold title-font mb-4">Formulaire de Contact</h1>
+                        <form action="send-contact.php" method="post" id="submit-contact-form">
+                            <div class="p-2 w-full">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 py-4 text-lg text-gray-900">Votre Nom</label>
+                                    <input type="text" id="name" name="name" required=""
+                                        class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-900 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out ">
+                                </div>
+                            </div>
+                            <div class="p-2 w-full">
+                                <div class="relative">
+                                    <label for="email" class="leading-7 py-4 text-lg text-gray-900">Votre Email</label>
+                                    <input type="email" id="email" name="email" required=""
+                                        class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-900 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out ">
+                                </div>
+                            </div>
+                            <div class="p-2 w-full">
+                                <div class="relative">
+                                    <label for="message" class="leading-7 py-4 text-lg text-gray-900">Votre Message</label>
+                                    <textarea id="message" name="message" required=""
+                                        class="w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out "></textarea>
+                                </div>
+                            </div>
+                            <div class="p-2 w-full">
+                                <button type="submit"
+                                    class="flex text-white bg-gray-900 border-0 py-4 px-6 focus:outline-none hover:bg-blue-900 rounded text-xl font-bold shadow-lg mx-0 flex-col text-center g-recaptcha">
+                                    Envoyez le Message ✉
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-white">
+                <div class="container mx-auto">
+                    <div class="flex flex-wrap justify-center -mx-3 lg:-mx-6">
+                        <div class="w-full md:w-auto p-3 md:px-6"><a href="/terms"
+                            class="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium">Termes</a>
+                        </div>
+                        <div class="w-full md:w-auto p-3 md:px-6"><a href="/privacy"
+                            class="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium">Privacy</a>
+                        </div>
+                        <div class="w-full md:w-auto p-3 md:px-6"><a
+                            class="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium" href="">Contactez Nous</a>
+                        </div>
+                        <div class="w-full md:w-auto p-3 md:px-6"><a href="/careers"
+                            class="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium">Carrières</a>
+                        </div>
+                        <div class="w-full md:w-auto p-3 md:px-6"><a href="/pricing"
+                            class="inline-block text-lg text-gray-500 hover:text-gray-600 font-medium">Tarification</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="pb-2 border-gray-100"></div>
+                <div class="container mx-auto">
+                    <p class="pb-2 text-md text-gray-400 font-medium text-center">
+                    © 2024 Groupefikri.com
+                    All rights reserved.
+                    </p>
+                </div>
+                </footer>
+
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('accordion', {
+        tab: 0
+      });
+      
+      Alpine.data('accordion', (idx) => ({
+        init() {
+          this.idx = idx;
+        },
+        idx: -1,
+        handleClick() {
+          this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+        },
+        handleRotate() {
+          return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+        },
+        handleToggle() {
+          return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+        }
+      }));
+    })
+
+        function toggleParticuliers() {
+        document.getElementById("part").style.display = "flex";
+        document.getElementById("pro").style.display = "none";
+        }
+
+        function toggleProfessionels() {
+            document.getElementById("part").style.display = "none";
+            document.getElementById("pro").style.display = "flex";
+        }
+
+  </script>
+
+
+
+
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    </body>
+</html>
